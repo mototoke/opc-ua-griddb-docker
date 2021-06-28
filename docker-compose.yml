@@ -1,0 +1,82 @@
+version: '3'
+services:
+    # データアップローダー用のNoSql(GridDB)
+    # Dockerfile参考URL: https://github.com/griddb/griddb-docker
+    griddb:
+        container_name: griddb-docker
+        build:
+            context: ./griddb
+            dockerfile: Dockerfile
+        ports:
+            - 10011:10001
+        volumes:
+            - "vol:/var/lib/gridstore"
+        networks:
+            my_network:
+                ipv4_address: 192.168.145.10
+    # データアップローダー、管理アプリケーションコンテナ(Java - opc, griddb)
+    # Dockerfile参考URL: https://github.com/griddb/griddb-docker/tree/main/jdbc
+    data-register:
+        container_name: data-register-app
+        build:
+            context: ./data-register
+            dockerfile: Dockerfile
+        tty: true
+        volumes:
+            - "vol:/var/lib/gridstore"
+        depends_on:
+            - griddb
+        networks:
+            my_network:
+                ipv4_address: 192.168.145.20
+    opc-client-1:
+        container_name: opc-client-1
+        build:
+            context: ./opc-client
+            dockerfile: Dockerfile
+        tty: true
+        volumes:
+            - "vol:/var/lib/gridstore"
+        depends_on:
+            - griddb
+        networks:
+            my_network:
+                ipv4_address: 192.168.145.31
+    opc-client-2:
+        container_name: opc-client-2
+        build:
+            context: ./opc-client
+            dockerfile: Dockerfile
+        tty: true
+        volumes:
+            - "vol:/var/lib/gridstore"
+        depends_on:
+            - griddb
+        networks:
+            my_network:
+                ipv4_address: 192.168.145.32
+    opc-client-3:
+        container_name: opc-client-3
+        build:
+            context: ./opc-client
+            dockerfile: Dockerfile
+        tty: true
+        volumes:
+            - "vol:/var/lib/gridstore"
+        depends_on:
+            - griddb
+        networks:
+            my_network:
+                ipv4_address: 192.168.145.33
+volumes:
+    vol:
+
+networks:
+    my_network:
+        ipam:
+            driver: default
+            config:
+                - subnet: 192.168.145.0/24
+
+# GrafanaからGridDBデータの参照も行いたい
+# 参考URL: https://github.com/griddb/griddb-datasource
