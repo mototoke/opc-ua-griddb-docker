@@ -20,6 +20,7 @@ if [ -z "$GRIDDB_PASSWORD" ]; then
     GRIDDB_PASSWORD='admin'
 fi
 
+# Sumple Run
 echo "parameter : $NOTIFICATION_ADDRESS $NOTIFICATION_PORT $GRIDDB_CLUSTER_NAME $GRIDDB_USERNAME $GRIDDB_PASSWORD"
 export CLASSPATH=${CLASSPATH}:/root/./gridstore-jdbc.jar:/root/./opc-ua-client-milo.jar
 javac JDBCSelect.java

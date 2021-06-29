@@ -1,4 +1,4 @@
-FROM java:8
+FROM openjdk:18
 
 # Install maven
 ENV MAVEN_VERSION 3.5.2
@@ -7,16 +7,20 @@ RUN curl -OL https://archive.apache.org/dist/maven/maven-3/3.5.2/binaries/apache
     tar zxvf ${MAVEN_BASE}-bin.tar.gz && mv $MAVEN_BASE /opt/maven
 ENV PATH=$PATH:/opt/maven/bin
 
-WORKDIR /root
-# 必要ファイルのコピー
-COPY MyOpcClient.java /root
-COPY run-client.sh /root
+# Run
+RUN mkdir /root/project
+WORKDIR /root/project
 
-# Set permission executable for script
-RUN chmod a+x run-client.sh
+# WORKDIR /root
+# # 必要ファイルのコピー
+# COPY MyOpcClient.java /root
+# COPY run-client.sh /root
 
-# Get dependency for OPC UA SDK Client
-RUN mvn dependency:get -Dartifact=org.eclipse.milo:sdk-client:0.6.1 -Dtest=./opc-ua-client-milo.jar
+# # Set permission executable for script
+# RUN chmod a+x run-client.sh
 
-# Run Spring Boot Module
-CMD ["/bin/bash", "run-client.sh"]
+# # Get dependency for OPC UA SDK Client
+# RUN mvn dependency:get -Dartifact=org.eclipse.milo:sdk-client:0.6.1 -Dtest=./opc-ua-client-milo.jar
+
+# # Run Spring Boot Module
+# CMD ["/bin/bash", "run-client.sh"]
