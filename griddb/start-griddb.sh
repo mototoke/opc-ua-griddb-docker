@@ -58,6 +58,14 @@ if [ "${1}" = 'griddb' ]; then
     # Read config file
     . /var/lib/gridstore/conf/gridstore.conf
 
+    # Create CLI settings file
+    file="/var/lib/gridstore/.gsshrc"
+    if [ ! -e $file ]; then
+        echo "setcluster cluster ${GRIDDB_CLUSTER_NAME:-"dockerGridDB"} 239.0.0.1 31999" >> $file
+        echo "setuser admin admin" >> $file
+        cat $file
+    fi
+
     # Start service
     gs_startnode -u $GRIDDB_USERNAME/$GRIDDB_PASSWORD -w
     gs_joincluster -c $GRIDDB_CLUSTER_NAME -u $GRIDDB_USERNAME/$GRIDDB_PASSWORD -w

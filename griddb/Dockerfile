@@ -22,6 +22,22 @@ RUN set -eux \
 # Remove package
     && rm griddb_${GRIDDB_VERSION}_amd64.deb
 
+ENV GRIDDB_BASE_VERSION=4.6.0
+ENV GRIDDB_MINOR_VERSION=4.6.0-1
+
+# Install griddb cli
+RUN set -eux \
+    && apt-get update \
+    && apt-get install -y default-jre \
+    && apt-get install -y openjdk-8-jdk \
+    # Download package griddb server
+    && wget -q https://github.com/griddb/cli/releases/download/v${GRIDDB_BASE_VERSION}/griddb-cli_${GRIDDB_BASE_VERSION}_amd64.deb \
+    # Install package griddb cli
+    && dpkg -i griddb-cli_${GRIDDB_BASE_VERSION}_amd64.deb \
+    # Remove package
+    && rm griddb-cli_${GRIDDB_BASE_VERSION}_amd64.deb
+
+
 VOLUME /var/lib/gridstore
 
 # Config file for griddb
