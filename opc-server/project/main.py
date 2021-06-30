@@ -20,6 +20,7 @@ async def main():
 
     # 環境変数から設定値を取得
     url = os.environ['ACCESS_URL']
+    print(url)
     server.set_endpoint(url)
 
     server.set_security_policy([
@@ -37,7 +38,7 @@ async def main():
     myvar = await myobj.add_variable(idx, 'Int64', 6.7)
     # Set MyVariable to be writable by clients
     await myvar.set_writable()
-    await server.nodes.objects.add_method(ua.NodeId('HelloWorld', 2), ua.QualifiedName('HelloWorld', 2), func, [ua.VariantType.Int64], [ua.VariantType.Int64])
+    await server.nodes.objects.add_method(ua.NodeId('Device1', 2), ua.QualifiedName('DataValue', 2), func, [ua.VariantType.Int64], [ua.VariantType.Int64])
     _logger.info('Starting server!')
     async with server:
         while True:

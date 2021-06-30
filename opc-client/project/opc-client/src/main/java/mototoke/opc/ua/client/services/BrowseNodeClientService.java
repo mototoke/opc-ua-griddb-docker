@@ -11,18 +11,13 @@ import org.eclipse.milo.opcua.stack.core.types.builtin.NodeId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MyBrowseNodeService implements IClientBase {
+public class BrowseNodeClientService implements IClientBase {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Override
-    public void run(OpcUaClient client, CompletableFuture<OpcUaClient> future) throws Exception {
-        // synchronous connect
-        client.connect().get();
-
+    public void run(OpcUaClient client) throws Exception {
         // start browsing at root folder
         browseNode("", client, Identifiers.RootFolder);
-
-        future.complete(client);
     }
 
     private void browseNode(String indent, OpcUaClient client, NodeId browseRoot) {
