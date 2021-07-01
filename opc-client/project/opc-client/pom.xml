@@ -48,6 +48,11 @@
         </exclusions>
       </dependency>
     <dependency>
+      <groupId>io.glutamate</groupId>
+      <artifactId>glutamate</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
         <groupId>org.jetbrains</groupId>
         <artifactId>annotations</artifactId>
         <version>20.1.0</version>

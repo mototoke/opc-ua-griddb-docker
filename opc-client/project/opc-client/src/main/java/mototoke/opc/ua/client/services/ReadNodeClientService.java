@@ -1,7 +1,6 @@
 package mototoke.opc.ua.client.services;
 
 import java.util.Arrays;
-import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
 import org.eclipse.milo.opcua.sdk.client.model.nodes.objects.ServerTypeNode;

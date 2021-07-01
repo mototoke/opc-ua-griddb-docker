@@ -1,9 +1,7 @@
 package mototoke.opc.ua.client.services;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import com.google.common.collect.ImmutableList;
 import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
 import org.eclipse.milo.opcua.stack.core.types.builtin.DataValue;
 import org.eclipse.milo.opcua.stack.core.types.builtin.NodeId;
@@ -18,7 +16,7 @@ public class WriteClientService implements IClientBase {
     @Override
     public void run(OpcUaClient client) throws Exception {
 
-        NodeId nodeId = new NodeId(2, "MyDevice");
+        NodeId nodeId = new NodeId(2, 2);
 
         Variant v = new Variant(1.0);
         DataValue dv = new DataValue(v, null, null);

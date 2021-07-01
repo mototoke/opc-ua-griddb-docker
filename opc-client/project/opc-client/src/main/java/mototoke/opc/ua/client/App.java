@@ -14,6 +14,7 @@ import mototoke.opc.ua.client.services.BrwoseClientService;
 import mototoke.opc.ua.client.services.BrowseNodeClientService;
 import mototoke.opc.ua.client.services.ReadClientService;
 import mototoke.opc.ua.client.services.ReadNodeClientService;
+import mototoke.opc.ua.client.services.ReadValueClientService;
 import mototoke.opc.ua.client.services.TransferBrowsePathClientService;
 import mototoke.opc.ua.client.services.WriteClientService;
 
@@ -49,6 +50,7 @@ public class App {
                     // ReadNodeClientService clientService4 = new ReadNodeClientService();
                     WriteClientService clientService5 = new WriteClientService();
                     // TransferBrowsePathClientService clientService6 = new TransferBrowsePathClientService();
+                    // ReadValueClientService clientService7 = new ReadValueClientService();
 
                     try {
                         // clientService.run(client);
@@ -57,6 +59,7 @@ public class App {
                         // clientService4.run(client);
                         clientService5.run(client);
                         // clientService6.run(client);
+                        // clientService7.run(client);
                     } catch (Exception e1) {
                         e1.printStackTrace();
                     } finally {

@@ -45,14 +45,14 @@ def multiply(parent, x, y):
 
 async def main():
     # optional: setup logging
-    #logger = logging.getLogger("asyncua.address_space")
-    # logger.setLevel(logging.DEBUG)
-    #logger = logging.getLogger("asyncua.internal_server")
-    # logger.setLevel(logging.DEBUG)
-    #logger = logging.getLogger("asyncua.binary_server_asyncio")
-    # logger.setLevel(logging.DEBUG)
-    #logger = logging.getLogger("asyncua.uaprocessor")
-    # logger.setLevel(logging.DEBUG)
+    logger = logging.getLogger("asyncua.address_space")
+    logger.setLevel(logging.DEBUG)
+    logger = logging.getLogger("asyncua.internal_server")
+    logger.setLevel(logging.DEBUG)
+    logger = logging.getLogger("asyncua.binary_server_asyncio")
+    logger.setLevel(logging.DEBUG)
+    logger = logging.getLogger("asyncua.uaprocessor")
+    logger.setLevel(logging.DEBUG)
 
     # now setup our server
     server = Server()
@@ -131,7 +131,12 @@ async def main():
         await myevgen.trigger(message="This is BaseEvent")
         await server.write_attribute_value(myvar.nodeid, ua.DataValue(0.9))  # Server side write method which is a bit faster than using write_value
         while True:
-            await asyncio.sleep(0.1)
+            await asyncio.sleep(1)
+            logger.info('dev : %s Value : %s ', dev, dev.get_value())
+            logger.info('mydevice : %s Value : %s ', mydevice, mydevice.get_value())
+            logger.info('mydevice_var : %s Value : %s ', mydevice_var, mydevice_var.get_value())
+            logger.info('myobj : %s Value : %s ', myobj, myobj.get_value())
+            logger.info('myvar : %s Value : %s ', myvar, myvar.get_value())
             await server.write_attribute_value(myvar.nodeid, ua.DataValue(sin(time.time())))
 
 
