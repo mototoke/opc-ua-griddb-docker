@@ -1,4 +1,4 @@
-package mototoke.opc.ua.client.services;
+package mototoke.opc.ua.client.services.opcua;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.nCopies;
@@ -22,6 +22,7 @@ public class ReadValueClientService implements IClientBase {
 
     @Override
     public void run(OpcUaClient client) throws Exception {
+        // NODEID 固定で試す
         final NodeId NODE_TO_READ = new NodeId(2, 1);
         read(client, NODE_TO_READ)
                             .thenAccept(value -> {

@@ -1,4 +1,4 @@
-package mototoke.opc.ua.client.services;
+package mototoke.opc.ua.client.services.opcua;
 
 import java.util.Arrays;
 

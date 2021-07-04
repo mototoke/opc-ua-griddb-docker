@@ -43,9 +43,8 @@ async def main():
     async with server:
         while True:
             await asyncio.sleep(1)
-            new_val = await myvar.get_value() + 0.1
-            _logger.info('Set value of %s to %.1f', myvar, new_val)
-            await myvar.write_value(new_val)
+            now_val = await myvar.get_value()
+            _logger.info('Set value of %s to %.1f', myvar, now_val)
 
 
 if __name__ == '__main__':

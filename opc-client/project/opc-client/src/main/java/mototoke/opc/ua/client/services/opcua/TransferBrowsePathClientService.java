@@ -1,4 +1,4 @@
-package mototoke.opc.ua.client.services;
+package mototoke.opc.ua.client.services.opcua;
 
 import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
 import org.eclipse.milo.opcua.stack.core.Identifiers;

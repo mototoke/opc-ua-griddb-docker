@@ -23,6 +23,19 @@ services:
             context: ./data-register
             dockerfile: Dockerfile
         tty: true
+        environment:
+            # OpcUa
+            ACCESS_IP: "192.168.145.25"
+            ACCESS_PORT: "4840"
+            DEVICE_1_NODE_ID: "2"
+            DEVICE_1_QUARLIFIED_NAME: "1"
+            EXECUTINON_CYCLE: "3000"
+            # GridDB
+            NOTIFICATION_ADDRESS: "239.0.0.1"
+            NOTIFICATION_PORT: "31999"
+            CULSTER_NAME: "dockerGridDB"
+            USER: "admin"
+            PASSWORD: "admin"
         volumes:
             - "./data-register/project:/root/project"
             - "vol:/var/lib/gridstore"
@@ -60,7 +73,8 @@ services:
         environment:
             ACCESS_IP: "192.168.145.25"
             ACCESS_PORT: "4840"
-            TAG_NAME: "TAG_NAME"
+            NODE_ID: "2"
+            QUARLIFIED_NAME: "1"
             EXECUTINON_CYCLE: "3000"
         volumes:
             - "./opc-client/project:/root/project"
