@@ -27,8 +27,12 @@ services:
             # OpcUa
             ACCESS_IP: "192.168.145.25"
             ACCESS_PORT: "4840"
-            DEVICE_1_NODE_ID: "2"
-            DEVICE_1_QUARLIFIED_NAME: "1"
+            DEVICE_1_NODE_ID: "1"
+            DEVICE_1_QUARLIFIED_NAME: "2001"
+            DEVICE_2_NODE_ID: "2"
+            DEVICE_2_QUARLIFIED_NAME: "2"
+            DEVICE_3_NODE_ID: "3"
+            DEVICE_3_QUARLIFIED_NAME: "3"
             EXECUTINON_CYCLE: "3000"
             # GridDB
             NOTIFICATION_ADDRESS: "239.0.0.1"
@@ -73,9 +77,10 @@ services:
         environment:
             ACCESS_IP: "192.168.145.25"
             ACCESS_PORT: "4840"
-            NODE_ID: "2"
-            QUARLIFIED_NAME: "1"
+            NODE_ID: "1"
+            QUARLIFIED_NAME: "2001"
             EXECUTINON_CYCLE: "3000"
+            METHOD_TYPE: "Fluctuation"
         volumes:
             - "./opc-client/project:/root/project"
             - "vol:/var/lib/gridstore"

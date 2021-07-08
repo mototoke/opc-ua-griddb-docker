@@ -11,7 +11,6 @@ from asyncua.common.methods import uamethod
 def func(parent, value):
     return value * 2
 
-
 async def main():
     _logger = logging.getLogger('asyncua')
     # setup our server
@@ -35,16 +34,24 @@ async def main():
     # populating our address space
     # server.nodes, contains links to very common nodes like objects and root
     myobj = await server.nodes.objects.add_object(idx, 'ScalarTypes')
-    myvar = await myobj.add_variable(idx, 'Int64', 6.7)
     # Set MyVariable to be writable by clients
-    await myvar.set_writable()
-    await server.nodes.objects.add_method(ua.NodeId('Device1', 2), ua.QualifiedName('DataValue', 2), func, [ua.VariantType.Int64], [ua.VariantType.Int64])
+    dev1 = await myobj.add_variable(1, 'Device1', 0.0)
+    await dev1.set_writable()
+    dev2 = await myobj.add_variable(2, 'Device2', -10.0)
+    await dev2.set_writable()
+    dev3 = await myobj.add_variable(3, 'Device3', 100.0)
+    await dev3.set_writable()
+
     _logger.info('Starting server!')
     async with server:
         while True:
             await asyncio.sleep(1)
-            now_val = await myvar.get_value()
-            _logger.info('Set value of %s to %.1f', myvar, now_val)
+            dev1_val = await dev1.get_value()
+            _logger.info('Set value of %s to %.1f', dev1, dev1_val)
+            dev2_val = await dev2.get_value()
+            _logger.info('Set value of %s to %.1f', dev2, dev2_val)
+            dev3_val = await dev3.get_value()
+            _logger.info('Set value of %s to %.1f', dev3, dev3_val)
 
 
 if __name__ == '__main__':

@@ -16,17 +16,49 @@ public class WriteClientService implements IClientBase {
 
     private NodeId nodeId;
 
-    public WriteClientService(NodeId targetNodeId) {
+    // MethoType is "Random" or "Fluctuation"
+    // Defalut is Flutuation
+    private String methodType = "Fluctuation";
+
+    private double writeValue = 0;
+    private double addValue = 0;
+
+    public WriteClientService(NodeId targetNodeId, String type) {
         super();
 
         this.nodeId = targetNodeId;
+
+        // 処理定義の決定
+        switch (type) {
+            case "Random":
+                this.methodType = type;
+                break;
+            default:
+                this.methodType = "Fluctuation";
+                break;
+        }
     }
 
     @Override
     public void run(OpcUaClient client) throws Exception {
 
-        // Set Random Value(-1000 ~ 1000)
-        Variant v = new Variant(this.randDouble(-1000.0, 1000));
+        Variant v;
+
+        switch (this.methodType) {
+            case "Random":
+                // Set Random Value(-1000 ~ 1000)
+                v = new Variant(this.randDouble(-1000.0, 1000));
+                break;
+        
+            default:
+                // Sin Curve
+                this.writeValue = (this.writeValue + this.addValue) * 0.1;
+                v = new Variant(Math.sin(this.writeValue));
+                break;
+        }
+
+        this.addValue = this.addValue + 1;
+
 
         DataValue dv = new DataValue(v, null, null);
         CompletableFuture<StatusCode> statusFuture =  client.writeValue(this.nodeId, dv);

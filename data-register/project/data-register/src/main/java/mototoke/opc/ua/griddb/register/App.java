@@ -18,16 +18,24 @@ public class App {
     // 環境変数から設定値を取得
     private static final String ip = System.getenv("ACCESS_IP");
     private static final String port = System.getenv("ACCESS_PORT");
-    private static final String nodeIdStr = System.getenv("DEVICE_1_NODE_ID");
-    private static final String qualifiedNameStr = System.getenv("DEVICE_1_QUARLIFIED_NAME");
+    private static final String dev1NodeIdStr = System.getenv("DEVICE_1_NODE_ID");
+    private static final String dev1QualifiedNameStr = System.getenv("DEVICE_1_QUARLIFIED_NAME");
+    private static final String dev2NodeIdStr = System.getenv("DEVICE_2_NODE_ID");
+    private static final String dev2QualifiedNameStr = System.getenv("DEVICE_2_QUARLIFIED_NAME");
+    private static final String dev3NodeIdStr = System.getenv("DEVICE_3_NODE_ID");
+    private static final String dev3QualifiedNameStr = System.getenv("DEVICE_3_QUARLIFIED_NAME");
     private static final String executionCycleStr = System.getenv("EXECUTINON_CYCLE");
     private static final String containerName = System.getenv("CONTAINER_NAME");
 
     public static void main( String[] args )
     {
         Integer executionCycle = Integer.parseInt(executionCycleStr);
-        Integer nodeId = Integer.parseInt(nodeIdStr);
-        Integer qualifiedName = Integer.parseInt(qualifiedNameStr);
+        Integer dev1NodeId = Integer.parseInt(dev1NodeIdStr);
+        Integer dev1QualifiedName = Integer.parseInt(dev1QualifiedNameStr);
+        Integer dev2NodeId = Integer.parseInt(dev2NodeIdStr);
+        Integer dev2QualifiedName = Integer.parseInt(dev2QualifiedNameStr);
+        Integer dev3NodeId = Integer.parseInt(dev3NodeIdStr);
+        Integer dev3QualifiedName = Integer.parseInt(dev3QualifiedNameStr);
 
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {

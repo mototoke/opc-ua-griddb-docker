@@ -36,9 +36,8 @@ public class CreateContainer {
 
             // Register Equip
             this.InitEquip(store);
-            // Register Alert
-            this.InitAlert(store);
-            // Register Point(Sensor Data: timeseries)
+            // Register Alert(アラートはとりあえず保留)
+            // this.InitAlert(store);
 
             store.close();
         } catch (GSException e) {
@@ -60,9 +59,7 @@ public class CreateContainer {
             equipCol.createIndex("id");
             equipCol.createIndex("name");
             // 自動コミットモードをOFF
-            equipCol.setAutoCommit(false);
-
-            
+            equipCol.setAutoCommit(false);            
 
             // トランザクションを確定
             equipCol.commit();

@@ -27,6 +27,7 @@ public class App {
     private static final String nodeIdStr = System.getenv("NODE_ID");
     private static final String qualifiedNameStr = System.getenv("QUARLIFIED_NAME");
     private static final String executionCycleStr = System.getenv("EXECUTINON_CYCLE");
+    private static final String methodType = System.getenv("METHOD_TYPE");
 
     public static void main( String[] args )
     {
@@ -53,7 +54,7 @@ public class App {
                     // BrowseNodeClientService clientService2 = new BrowseNodeClientService();
                     // ReadClientService clientService3 = new ReadClientService();
                     // ReadNodeClientService clientService4 = new ReadNodeClientService();
-                    WriteClientService clientService5 = new WriteClientService(new NodeId(nodeId, qualifiedName));
+                    WriteClientService clientService5 = new WriteClientService(new NodeId(nodeId, qualifiedName), methodType);
                     // TransferBrowsePathClientService clientService6 = new TransferBrowsePathClientService();
                     // ReadValueClientService clientService7 = new ReadValueClientService();
                     // ReadWriteIdClientService clientService8 = new ReadWriteIdClientService(new NodeId(2, 2));
