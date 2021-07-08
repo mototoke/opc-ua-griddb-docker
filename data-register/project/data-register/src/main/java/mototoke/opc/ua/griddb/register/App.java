@@ -52,10 +52,22 @@ public class App {
                     OpcUaClient client = OpcUaClient.create(cfg.build());
                     client.connect().get();
                     
-                    ReadValueClientService clientServiceDevice1 = new ReadValueClientService();
+                    ReadValueClientService clientService = new ReadValueClientService();
+
+                    RegisterService registerService = new RegisterService();
 
                     try {
-                        // clientServiceDevice1.readValue(client, nodeId, clazz);
+                        // OPC UAからデバイス2のセンサー値取得
+                        double dev1SensorValue = clientService.readValue(client, new NodeId(dev1NodeId, dev1QualifiedName), double.class);
+
+                        // OPC UAからデバイス2のセンサー値取得
+                        double dev2SensorValue = clientService.readValue(client, new NodeId(dev2NodeId, dev2QualifiedName), double.class);
+
+                        // OPC UAからデバイス2のセンサー値取得
+                        double dev3SensorValue = clientService.readValue(client, new NodeId(dev3NodeId, dev3QualifiedName), double.class);
+
+
+
 
                     } catch (Exception e1) {
                         e1.printStackTrace();
