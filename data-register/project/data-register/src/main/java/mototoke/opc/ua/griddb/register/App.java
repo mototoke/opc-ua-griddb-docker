@@ -4,6 +4,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import java.util.List;
+import java.util.Properties;
+
 import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
 import org.eclipse.milo.opcua.sdk.client.api.config.OpcUaClientConfigBuilder;
 import org.eclipse.milo.opcua.stack.client.DiscoveryClient;
@@ -11,6 +13,7 @@ import org.eclipse.milo.opcua.stack.core.types.builtin.NodeId;
 import org.eclipse.milo.opcua.stack.core.types.structured.EndpointDescription;
 import org.eclipse.milo.opcua.stack.core.util.EndpointUtil;
 
+import mototoke.opc.ua.griddb.register.services.griddb.nosql.RegisterService;
 import mototoke.opc.ua.griddb.register.services.opcua.ReadValueClientService;
 
 
@@ -25,7 +28,7 @@ public class App {
     private static final String dev3NodeIdStr = System.getenv("DEVICE_3_NODE_ID");
     private static final String dev3QualifiedNameStr = System.getenv("DEVICE_3_QUARLIFIED_NAME");
     private static final String executionCycleStr = System.getenv("EXECUTINON_CYCLE");
-    private static final String containerName = System.getenv("CONTAINER_NAME");
+    private static final String containerName = "MyContainer";
 
     public static void main( String[] args )
     {
@@ -54,19 +57,36 @@ public class App {
                     
                     ReadValueClientService clientService = new ReadValueClientService();
 
+                    Properties props = new Properties();
+                    props.setProperty("notificationAddress", "239.0.0.1");
+                    props.setProperty("notificationPort", "31999");
+                    props.setProperty("clusterName", "dockerGridDB");
+                    props.setProperty("user", "admin");
+                    props.setProperty("password", "admin");
+
                     RegisterService registerService = new RegisterService();
+
+                    // Init DB
+                    CreateContainer cc = new CreateContainer(props, containerName);
 
                     try {
                         // OPC UAからデバイス2のセンサー値取得
-                        double dev1SensorValue = clientService.readValue(client, new NodeId(dev1NodeId, dev1QualifiedName), double.class);
+                        Double dev1SensorValue = clientService.readValue(client, new NodeId(dev1NodeId, dev1QualifiedName), Double.class);
 
-                        // OPC UAからデバイス2のセンサー値取得
-                        double dev2SensorValue = clientService.readValue(client, new NodeId(dev2NodeId, dev2QualifiedName), double.class);
+                        // // OPC UAからデバイス2のセンサー値取得
+                        // Double dev2SensorValue = clientService.readValue(client, new NodeId(dev2NodeId, dev2QualifiedName), Double.class);
 
-                        // OPC UAからデバイス2のセンサー値取得
-                        double dev3SensorValue = clientService.readValue(client, new NodeId(dev3NodeId, dev3QualifiedName), double.class);
+                        // // OPC UAからデバイス2のセンサー値取得
+                        // Double dev3SensorValue = clientService.readValue(client, new NodeId(dev3NodeId, dev3QualifiedName), Double.class);
 
+                        // デバイス1 データの登録
+                        registerService.insertSensorValue(props, containerName, "panel001_voltage", dev1SensorValue);
 
+                        // // デバイス2 データの登録
+                        // registerService.insertSensorValue(props, containerName, "panel002_voltage", dev2SensorValue);
+
+                        // // デバイス3 データの登録
+                        // registerService.insertSensorValue(props, containerName, "panel003_voltage", dev3SensorValue);
 
 
                     } catch (Exception e1) {

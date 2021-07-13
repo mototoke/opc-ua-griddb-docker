@@ -32,7 +32,7 @@ services:
             DEVICE_2_NODE_ID: "2"
             DEVICE_2_QUARLIFIED_NAME: "2"
             DEVICE_3_NODE_ID: "3"
-            DEVICE_3_QUARLIFIED_NAME: "3"
+            DEVICE_3_QUARLIFIED_NAME: "1"
             EXECUTINON_CYCLE: "3000"
             # GridDB
             NOTIFICATION_ADDRESS: "239.0.0.1"
@@ -80,7 +80,7 @@ services:
             NODE_ID: "1"
             QUARLIFIED_NAME: "2001"
             EXECUTINON_CYCLE: "3000"
-            METHOD_TYPE: "Fluctuation"
+            METHOD_TYPE: "Random"
         volumes:
             - "./opc-client/project:/root/project"
             - "vol:/var/lib/gridstore"
@@ -96,6 +96,13 @@ services:
             context: ./opc-client
             dockerfile: Dockerfile
         tty: true
+        environment:
+            ACCESS_IP: "192.168.145.25"
+            ACCESS_PORT: "4840"
+            NODE_ID: "2"
+            QUARLIFIED_NAME: "2"
+            EXECUTINON_CYCLE: "1000"
+            METHOD_TYPE: "Fluctuation"
         volumes:
             - "./opc-client/project:/root/project"
             - "vol:/var/lib/gridstore"
@@ -111,6 +118,13 @@ services:
             context: ./opc-client
             dockerfile: Dockerfile
         tty: true
+        environment:
+            ACCESS_IP: "192.168.145.25"
+            ACCESS_PORT: "4840"
+            NODE_ID: "3"
+            QUARLIFIED_NAME: "1"
+            EXECUTINON_CYCLE: "1000"
+            METHOD_TYPE: "Fluctuation"
         volumes:
             - "./opc-client/project:/root/project"
             - "vol:/var/lib/gridstore"
