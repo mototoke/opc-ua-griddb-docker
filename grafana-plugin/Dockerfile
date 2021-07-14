@@ -1,0 +1,11 @@
+FROM node:12
+
+RUN git clone https://github.com/griddb/griddb-datasource && \
+    cd griddb-datasource && \
+    yarn install && \
+    yarn build
+
+FROM grafana/grafana:latest
+
+COPY --from=0 /griddb-datasource/dist /var/lib/grafana/plugins/griddb-plugin
+CMD ["/run.sh"]

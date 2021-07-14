@@ -11,6 +11,8 @@ ENV PATH=$PATH:/opt/maven/bin
 RUN mkdir /root/project
 WORKDIR /root/project
 
+CMD cd opc-client && mvn install && mvn exec:java -Dexec.mainClass=mototoke.opc.ua.client.App
+
 # WORKDIR /root
 # # 必要ファイルのコピー
 # COPY MyOpcClient.java /root

@@ -11,3 +11,4 @@ RUN echo '. /root/.venv/bin/activate' >> .bashrc
 WORKDIR /root/project
 
 # CMD uaserver
+CMD . /root/.venv/bin/activate && python main.py

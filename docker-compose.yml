@@ -133,6 +133,16 @@ services:
         networks:
             my_network:
                 ipv4_address: 192.168.145.33
+    
+    # 参考URL: https://github.com/griddb/griddb-datasource
+    grafana_plugin:
+        container_name: grafana
+        build:
+            context: ./grafana-plugin
+            dockerfile: Dockerfile
+        ports:
+            - 3000:3000
+
 volumes:
     vol:
 

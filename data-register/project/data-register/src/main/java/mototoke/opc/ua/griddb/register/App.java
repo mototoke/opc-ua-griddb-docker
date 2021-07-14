@@ -73,21 +73,26 @@ public class App {
                         // OPC UAからデバイス2のセンサー値取得
                         Double dev1SensorValue = clientService.readValue(client, new NodeId(dev1NodeId, dev1QualifiedName), Double.class);
 
-                        // // OPC UAからデバイス2のセンサー値取得
-                        // Double dev2SensorValue = clientService.readValue(client, new NodeId(dev2NodeId, dev2QualifiedName), Double.class);
+                        // OPC UAからデバイス2のセンサー値取得
+                        Double dev2SensorValue = clientService.readValue(client, new NodeId(dev2NodeId, dev2QualifiedName), Double.class);
 
-                        // // OPC UAからデバイス2のセンサー値取得
-                        // Double dev3SensorValue = clientService.readValue(client, new NodeId(dev3NodeId, dev3QualifiedName), Double.class);
+                        // OPC UAからデバイス2のセンサー値取得
+                        Double dev3SensorValue = clientService.readValue(client, new NodeId(dev3NodeId, dev3QualifiedName), Double.class);
 
                         // デバイス1 データの登録
                         registerService.insertSensorValue(props, containerName, "panel001_voltage", dev1SensorValue);
+                        // debug
+                        registerService.debugSelectTimeSeriesValue(props, containerName, "panel001_voltage");
 
-                        // // デバイス2 データの登録
-                        // registerService.insertSensorValue(props, containerName, "panel002_voltage", dev2SensorValue);
+                        // デバイス2 データの登録
+                        registerService.insertSensorValue(props, containerName, "panel002_voltage", dev2SensorValue);
+                        // debug
+                        registerService.debugSelectTimeSeriesValue(props, containerName, "panel002_voltage");
 
-                        // // デバイス3 データの登録
-                        // registerService.insertSensorValue(props, containerName, "panel003_voltage", dev3SensorValue);
-
+                        // デバイス3 データの登録
+                        registerService.insertSensorValue(props, containerName, "panel003_voltage", dev3SensorValue);
+                        // debug
+                        registerService.debugSelectTimeSeriesValue(props, containerName, "panel003_voltage");
 
                     } catch (Exception e1) {
                         e1.printStackTrace();

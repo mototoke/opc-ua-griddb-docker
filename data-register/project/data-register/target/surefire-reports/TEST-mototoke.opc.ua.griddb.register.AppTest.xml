@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="mototoke.opc.ua.griddb.register.AppTest" time="0.027" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="mototoke.opc.ua.griddb.register.AppTest" time="0.033" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="18"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -11,7 +11,7 @@
     <property name="java.vm.specification.version" value="18"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/usr/java/openjdk-18/lib"/>
-    <property name="sun.java.command" value="/root/project/data-register/target/surefire/surefirebooter4659929575799178109.jar /root/project/data-register/target/surefire 2021-07-03T18-52-33_629-jvmRun1 surefire18255625567437598648tmp surefire_09570562710222436405tmp"/>
+    <property name="sun.java.command" value="/root/project/data-register/target/surefire/surefirebooter11299924241515668541.jar /root/project/data-register/target/surefire 2021-07-14T15-32-55_563-jvmRun1 surefire11946609768867887727tmp surefire_012008806448346621288tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/root/project/data-register/target/test-classes:/root/project/data-register/target/classes:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/eclipse/milo/sdk-client/0.6.3/sdk-client-0.6.3.jar:/root/.m2/repository/org/eclipse/milo/stack-client/0.6.3/stack-client-0.6.3.jar:/root/.m2/repository/org/eclipse/milo/stack-core/0.6.3/stack-core-0.6.3.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.61/bcprov-jdk15on-1.61.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.61/bcpkix-jdk15on-1.61.jar:/root/.m2/repository/com/google/guava/guava/26.0-jre/guava-26.0-jre.jar:/root/.m2/repository/io/netty/netty-codec/4.1.54.Final/netty-codec-4.1.54.Final.jar:/root/.m2/repository/io/netty/netty-handler/4.1.54.Final/netty-handler-4.1.54.Final.jar:/root/.m2/repository/io/netty/netty-resolver/4.1.54.Final/netty-resolver-4.1.54.Final.jar:/root/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.3/jaxb-runtime-2.3.3.jar:/root/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar:/root/.m2/repository/org/glassfish/jaxb/txw2/2.3.3/txw2-2.3.3.jar:/root/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.11/istack-commons-runtime-3.0.11.jar:/root/.m2/repository/com/sun/activation/jakarta.activation/1.2.2/jakarta.activation-1.2.2.jar:/root/.m2/repository/com/digitalpetri/netty/netty-channel-fsm/0.5/netty-channel-fsm-0.5.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.4.30/kotlin-stdlib-jdk8-1.4.30.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.30/kotlin-stdlib-1.4.30.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.30/kotlin-stdlib-common-1.4.30.jar:/root/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.4.30/kotlin-stdlib-jdk7-1.4.30.jar:/root/.m2/repository/com/digitalpetri/fsm/strict-machine/0.5/strict-machine-0.5.jar:/root/.m2/repository/io/netty/netty-codec-http/4.1.54.Final/netty-codec-http-4.1.54.Final.jar:/root/.m2/repository/io/netty/netty-common/4.1.54.Final/netty-common-4.1.54.Final.jar:/root/.m2/repository/io/netty/netty-buffer/4.1.54.Final/netty-buffer-4.1.54.Final.jar:/root/.m2/repository/io/netty/netty-transport/4.1.54.Final/netty-transport-4.1.54.Final.jar:/root/.m2/repository/org/eclipse/milo/sdk-core/0.6.3/sdk-core-0.6.3.jar:/root/.m2/repository/com/github/griddb/gridstore-jdbc/4.6.0/gridstore-jdbc-4.6.0.jar:/root/.m2/repository/org/slf4j/slf4j-jdk14/1.7.7/slf4j-jdk14-1.7.7.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar:/root/.m2/repository/com/github/griddb/gridstore/4.6.0/gridstore-4.6.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -26,7 +26,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/root/project/data-register/target/surefire/surefirebooter4659929575799178109.jar"/>
+    <property name="surefire.real.class.path" value="/root/project/data-register/target/surefire/surefirebooter11299924241515668541.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="18-ea+3-63"/>
     <property name="user.name" value="root"/>
@@ -50,5 +50,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="62.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="mototoke.opc.ua.griddb.register.AppTest" time="0.002"/>
+  <testcase name="shouldAnswerWithTrue" classname="mototoke.opc.ua.griddb.register.AppTest" time="0.005"/>
 </testsuite>

@@ -1,9 +1,2 @@
-mototoke/opc/ua/client/services/ReadNodeClientService.class
-mototoke/opc/ua/client/App.class
-mototoke/opc/ua/client/services/TransferBrowsePathClientService.class
-mototoke/opc/ua/client/services/WriteClientService.class
-mototoke/opc/ua/client/services/BrwoseClientService.class
-mototoke/opc/ua/client/services/ReadClientService.class
-mototoke/opc/ua/client/services/IClientBase.class
-mototoke/opc/ua/client/services/BrowseNodeClientService.class
 mototoke/opc/ua/client/App$1.class
+mototoke/opc/ua/client/App.class

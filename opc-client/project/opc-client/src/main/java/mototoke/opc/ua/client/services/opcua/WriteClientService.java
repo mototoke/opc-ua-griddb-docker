@@ -21,7 +21,7 @@ public class WriteClientService implements IClientBase {
     private String methodType = "Fluctuation";
 
     private double writeValue = 0;
-    private double addValue = 0;
+    private static double addValue = 0;
 
     public WriteClientService(NodeId targetNodeId, String type) {
         super();
@@ -52,12 +52,12 @@ public class WriteClientService implements IClientBase {
         
             default:
                 // Sin Curve
-                this.writeValue = (this.writeValue + this.addValue) * 0.1;
+                this.writeValue = (this.writeValue + WriteClientService.addValue) * 0.1;
                 v = new Variant(Math.sin(this.writeValue));
                 break;
         }
 
-        this.addValue = this.addValue + 1;
+        WriteClientService.addValue = WriteClientService.addValue + 1;
 
 
         DataValue dv = new DataValue(v, null, null);
