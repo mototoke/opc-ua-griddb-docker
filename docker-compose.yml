@@ -157,6 +157,3 @@ networks:
             driver: default
             config:
                 - subnet: 192.168.145.0/24
-
-# GrafanaからGridDBデータの参照も行いたい
-# 参考URL: https://github.com/griddb/griddb-datasource
